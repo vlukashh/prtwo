@@ -59,7 +59,21 @@ let app = new Vue({
             }
             this.checkMoveCard();
         },
+        //перемещает карточку из первого столбца, если выполнины условия для перехода
+        MoveFirstColm() {
+            this.firstColumn.forEach(card => {
+                const progress = (card.items.filter(item => item.checked).length / card.items.length) * 100;
 
+                const isMaxSecondColumn = this.secondColumn.length >= 5;
+
+                if (progress >= 50 && !isMaxSecondColumn) {
+                    this.secondColumn.push(card);
+                    this.firstColumn.splice(this.firstColumn.indexOf(card), 1);
+                    this.MoveSecondColm();
+                }
+            });
+
+        },
         //проверка нужно ли перемещать карточку между столбцами
         checkMoveCard() {
             this.MoveFirstColm();
