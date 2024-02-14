@@ -1,11 +1,9 @@
-import './assets/main.css'
+//сохранение данных
+const storageKey = '-new';
+const storageData = localStorage.getItem(storageKey);
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-
-const app = createApp(App)
-
-app.use(router)
-
-app.mount('#app')
+const initialData = storageData ? JSON.parse(storageData) : {
+    firstColumn: [],
+    secondColumn: [],
+    thirdColumn: []
+};
