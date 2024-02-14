@@ -49,6 +49,13 @@ let app = new Vue({
             };
             localStorage.setItem(storageKey, JSON.stringify(data));
         },
+        //удаление из третьего столбца
+        deleteGroup(groupId) {
+            const index = this.thirdColumn.findIndex(group => group.id === groupId);
+            if (index !== -1) {
+                this.thirdColumn.splice(index, 1);
+            }
+        },
         //обнолвение прогресса карточки
         updateProgress(card) {
             const checkedCount = card.items.filter(item => item.checked).length;
