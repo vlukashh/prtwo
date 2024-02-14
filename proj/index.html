@@ -11,6 +11,30 @@
   <body>
   <h1 class="title">Заметки</h1>
   <div id="new">
+      <form class="cardForm" @submit.prevent="addCard">
+          <p>
+              <label for="GroupName">Название карточки</label>
+              <input id="GroupName" v-model="groupName" >
+          </p>
+          <p>
+              <li for="InputOne">
+                  <input id="InputOne" v-model="inputOne" placeholder="Запишите заметку ">
+              </li>
+          </p>
+          <p>
+              <li for="InputTwo">
+                  <input id="InputTwo" v-model="inputTwo" placeholder="Запишите заметку  ">
+              </li>
+          </p>
+          <p>
+              <li for="InputThr">
+                  <input id="InputThr" v-model="inputThr" placeholder="Запишите заметку  ">
+              </li>
+          </p>
+          <p>
+              <input type="submit" value="Добавить">
+          </p>
+      </form>
 
   </div>
 
