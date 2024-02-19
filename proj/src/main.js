@@ -14,6 +14,8 @@ let app = new Vue({
         firstColumn: initialData.firstColumn,
         secondColumn: initialData.secondColumn,
         thirdColumn: initialData.thirdColumn,
+        checkColumn1: false,
+        checkColumn2: false,
         groupName: null,
         inputOne: null,
         inputTwo: null,
@@ -48,6 +50,14 @@ let app = new Vue({
                 thirdColumn: this.thirdColumn
             };
             localStorage.setItem(storageKey, JSON.stringify(data));
+        },
+        checkSizeColumn2(){
+            if(this.secondColumn.length === 5){
+                this.checkColumn2 = true;
+            }
+            else{
+                this.checkColumn2 = false;
+            }
         },
         //удаление из третьего столбца
         deleteGroup(groupId) {

@@ -41,13 +41,14 @@
           <p>50%</p>
           <p>100%</p>
       </div>
+      {{ checkSizeColumn2() }}
       <div class="columns" style="display: flex; justify-content: space-evenly; ">
           <div class="column">
               <div class="card" v-for="group in firstColumn" :key="group.id">
                   <h3>{{group.groupName}}</h3>
                   <ul>
                       <li v-for="item in group.items" :key="item.id">
-                          <input type="checkbox" v-model="item.checked" @change="updateProgress(group)">
+                          <input type="checkbox" v-model="item.checked" @change="updateProgress(group)" :disabled="checkColumn2">
                           {{ item.text }}
                       </li>
                   </ul>
