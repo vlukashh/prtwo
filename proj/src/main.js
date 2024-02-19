@@ -101,25 +101,36 @@ let app = new Vue({
         },
         //добавление карточки в первый столбец
         addCard() {
-            const newGroup = {
-                id: Date.now(),
-                groupName: this.groupName,
-                items: [
-                    { text: this.inputOne, checked: false },
-                    { text: this.inputTwo, checked: false },
-                    { text: this.inputThr, checked: false },
-                ]
+            // Проверяем, заполнен ли второй столбец
+            if (this.secondColumn.length >= 5) {
+                alert('Второй столбец заполнен максимальным количеством карточек. Нельзя создавать новые карточки в первый столбец.');
+                return;
             }
-            if (this.firstColumn.length < 3) {
-                this.firstColumn.push(newGroup)
+
+            // Проверяем, разрешено ли добавление новых карточек в первый столбец
+            if (!this.isFirstColumnLocked && this.firstColumn.length < 3) {
+                this.firstColumn.push({
+                    id: Date.now(),
+                    groupName: this.groupName,
+                    items: [
+                        {text: this.inputOne, checked: false},
+                        {text: this.inputTwo, checked: false},
+                        {text: this.inputThr, checked: false},
+                    ]
+                });
+
+                this.groupName = null;
+                this.inputOne = null;
+                this.inputTwo = null;
+                this.inputThr = null;
+
+                this.MoveFirstColm(); // Проверяем, нужно ли перемещать карточку из первого столбца
+            } else {
+                alert('Первый столбец заполнен максимальным количеством карточек .');
             }
-            this.groupName = null,
-                this.inputOne = null,
-                this.inputTwo = null,
-                this.inputThr = null
         }
     },
-    mounted() {
+        mounted() {
         // this.checkBlockColumn();
     }
 })

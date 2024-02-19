@@ -15,21 +15,21 @@
       <form class="cardForm" @submit.prevent="addCard">
           <p>
               <label for="GroupName">Название карточки</label>
-              <input id="GroupName" v-model="groupName" >
+              <input id="GroupName" v-model="groupName" required >
           </p>
           <p>
               <li for="InputOne">
-                  <input id="InputOne" v-model="inputOne" placeholder="Запишите заметку ">
+                  <input id="InputOne" v-model="inputOne" placeholder="Запишите заметку " required>
               </li>
           </p>
           <p>
               <li for="InputTwo">
-                  <input id="InputTwo" v-model="inputTwo" placeholder="Запишите заметку  ">
+                  <input id="InputTwo" v-model="inputTwo" placeholder="Запишите заметку  " required>
               </li>
           </p>
           <p>
               <li for="InputThr">
-                  <input id="InputThr" v-model="inputThr" placeholder="Запишите заметку  ">
+                  <input id="InputThr" v-model="inputThr" placeholder="Запишите заметку  " required>
               </li>
           </p>
           <p>
