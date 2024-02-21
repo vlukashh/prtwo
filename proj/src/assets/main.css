@@ -24,6 +24,9 @@ h2 {
   animation-duration: 3s;
   animation-name: slidein;
 }
+.disabled {
+  pointer-events: none;
+}
 @keyframes slidein {
   from {
     margin-left: 100%;
